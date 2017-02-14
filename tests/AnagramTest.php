@@ -6,19 +6,19 @@ class AnagramTest extends PHPUnit_Framework_TestCase
     // Check string for 1 letter words.
     // ex. String = "hall", anagram = "a"
 
-    // function test_checkAnagram1()
-    // {
-    //     //Arrange
-    //     $testWord = "hall";
-    //     $test_Anagram = new Anagram($testWord);
-    //
-    //     //Act
-    //     $result = $test_Anagram->createAnagrams();
-    //
-    //     //Assert
-    //     $this->assertEquals(["a"], $result);
-    //
-    // }
+    function test_checkAnagram1()
+    {
+        //Arrange
+        $testWord = "a";
+        $test_Anagram = new Anagram($testWord);
+
+        //Act
+        $result = $test_Anagram->createAnagrams();
+
+        //Assert
+        $this->assertEquals(["a"], $result);
+
+    }
 
 
     // Check string for 2 letter words.

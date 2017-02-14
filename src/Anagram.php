@@ -31,6 +31,8 @@
             $anagramList = array();
             $fullWord = $this->getWord();
             $fullWordExploded = str_split($fullWord);
+            // This goes through the array and counts the number of times each value occurs, creating a key-value pair
+            $numLetterCount = array_count_values($fullWordExploded);
             $listOfWords = $this->getWordsToCheck();
             // Find one-letter words
             // Loop through each letter in the word
@@ -43,8 +45,31 @@
                     }
                 }
             }
+
+            // Get length of word array
+
+            // For 1 through length of word array
+
+            //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             // Find two-letter words
             foreach ($fullWordExploded as $letter) {
+                // Track number of occurances of letter
+                $tempNumberOfOccurances = $numLetterCount[$letter];
                 foreach ($fullWordExploded as $letter2)
                 {
                     $combo = $letter . $letter2;
