@@ -14,6 +14,16 @@
     $app->get("/", function() use ($app) {
     return $app['twig']->render('anagram.html.twig');
     });
-    
+
+    $app->get("/display_anagrams", function() use ($app) {
+        $formWord = $_GET["word"];
+        $formWordList = $_GET["word-list"];
+
+        $wordList = explode(' ', $formWordList);
+        $newAnagram = new Anagram($formWord, $wordList);
+        $results = $newAnagram->createAnagrams();
+    return $app['twig']->render('display_anagrams.html.twig', array('results' => $results));
+    });
+
     return $app;
  ?>
