@@ -47,7 +47,7 @@ class AnagramTest extends PHPUnit_Framework_TestCase
     {
         //Arrange
         $testWord = "bread";
-        $anagramList = ['a', 'sam', 'hello', 'beard'];
+        $anagramList = ['sam', 'hello', 'beard'];
         $test_Anagram = new Anagram($testWord, $anagramList);
 
         //Act
@@ -64,15 +64,15 @@ class AnagramTest extends PHPUnit_Framework_TestCase
     function test_checkAnagramFull()
     {
         //Arrange
-        $testWord = "hall";
-        $anagramList = ['a', 'sam', 'hello'];
+        $testWord = "hello";
+        $anagramList = ['a', 'sam', 'hell'];
         $test_Anagram = new Anagram($testWord, $anagramList);
 
         //Act
         $result = $test_Anagram->createAnagrams();
 
         //Assert
-        $this->assertEquals(["a", "ha", "ah", "la", "all"], $result);
+        $this->assertEquals(['hell'], $result);
 
     }
 
