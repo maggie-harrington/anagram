@@ -1,13 +1,25 @@
 <?php
 
     class Anagram {
-        function createAnagrams($string)
+
+        private $word;
+
+        function __constructor($string)
         {
-            
+            $this->word = $string;
+        }
+
+        function getWord()
+        {
+            return $this->word;
+        }
+
+        function createAnagrams()
+        {
+
         }
 
 
     }
-
 
  ?>
