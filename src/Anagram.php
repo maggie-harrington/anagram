@@ -21,46 +21,39 @@
             return $this->wordsToCheck;
         }
 
-        function setWordsToCheck()
-        {
-            // This is empty for now but will be filled later with list from text file.
-            $this->wordsToCheck = "";
-        }
-
         function createAnagrams()
         {
             // array returned of anagrams of user word form list
             $anagramList = array();
 
             $fullWord = $this->getWord();
+            // Split word into an array of individual letters
             $fullWordExploded = str_split($fullWord);
-            $wordLength = count($fullWordExploded);
+            // Sort array of letters alphabetically
+            sort($fullWordExploded);
 
-            // This goes through the array and counts the number of times each value occurs, creating a key-value pair
-            $numLetterCount = array_count_values($fullWordExploded);
+            // $wordLength = count($fullWordExploded);
+            //
+            // // This goes through the array and counts the number of times each value occurs, creating a key-value pair
+            // $numLetterCount = array_count_values($fullWordExploded);
+
+            // Get list of words input by user
             $listOfWords = $this->getWordsToCheck();
 
-            // put array of possible anagrams in order
-            sort($listOfWords);
 
-            // not
 
-            // possible word in wordarray is ton
-            for ($x = 0; $x < $wordLength; $x++){
-
-                // Loop through each word in the word list
-                foreach ($listOfWords as $wordtemp) {
-
-                    foreach ($fullWordExploded as $letter){
-                        if($letter == $wordtemp[$x]){
-                            array_push($anagramList, $wordtemp);
-                        }
-                    }
-
+            // Loop through each word in the word list
+            foreach ($listOfWords as $wordtemp) {
+                // Split each word into array of individual letters
+                $individualWordArray = str_split($wordtemp);
+                // Sort array alphabetically
+                sort($individualWordArray);
+                // If the alphabetized letter arrays are equal, push the word from the word list into the return array.
+                if ($individualWordArray == $fullWordExploded) {
+                    array_push($anagramList, $wordtemp);
                 }
 
             }
-
 
             return $anagramList;
         }
