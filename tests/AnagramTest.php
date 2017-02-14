@@ -10,14 +10,13 @@ class AnagramTest extends PHPUnit_Framework_TestCase
     {
         //Arrange
         $testWord = "hall";
-        $wordsToCheck = array("a", "ha", "ah", "la", "all");
         $test_Anagram = new Anagram($testWord);
 
         //Act
         $result = $test_Anagram->createAnagrams();
 
         //Assert
-        $this->assertEquals(true, $result);
+        $this->assertEquals(["a"], $result);
 
     }
 
@@ -29,7 +28,6 @@ class AnagramTest extends PHPUnit_Framework_TestCase
     {
         //Arrange
         $testWord = "hall";
-        $wordsToCheck = array("a", "ha", "ah", "la", "all");
         $test_Anagram = new Anagram($testWord);
 
         //Act
@@ -47,7 +45,6 @@ class AnagramTest extends PHPUnit_Framework_TestCase
     {
         //Arrange
         $testWord = "hall";
-        $wordsToCheck = array("a", "ha", "ah", "la", "all");
         $test_Anagram = new Anagram($testWord);
 
         //Act
@@ -65,7 +62,6 @@ class AnagramTest extends PHPUnit_Framework_TestCase
     {
         //Arrange
         $testWord = "hall";
-        $wordsToCheck = array("a", "ha", "ah", "la", "all");
         $test_Anagram = new Anagram($testWord);
 
         //Act

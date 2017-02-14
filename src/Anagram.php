@@ -3,10 +3,11 @@
     class Anagram {
 
         private $word;
+        private $wordsToCheck = array("a", "ha", "ah", "la", "all");
 
-        function __constructor($string)
+        function __construct($wordInput)
         {
-            $this->word = $string;
+            $this->word = $wordInput;
         }
 
         function getWord()
@@ -14,9 +15,34 @@
             return $this->word;
         }
 
+        function getWordsToCheck()
+        {
+            return $this->wordsToCheck;
+        }
+
+        function setWordsToCheck()
+        {
+            // This is empty for now but will be filled later with list from text file.
+            $this->wordsToCheck = "";
+        }
+
         function createAnagrams()
         {
-
+            $anagramList = array();
+            $fullWord = $this->getWord();
+            $fullWordExploded = str_split($fullWord);
+            $listOfWords = $this->getWordsToCheck();
+            // Loop through each letter in the word
+            foreach ($fullWordExploded as $letter) {
+                // Loop through each word in the word list
+                foreach ($listOfWords as $wordtemp) {
+                    if ($letter == $wordtemp)
+                    {
+                        array_push($anagramList, $wordtemp);
+                    }
+                }
+            }
+            return $anagramList;
         }
 
 
