@@ -32,6 +32,7 @@
             $fullWord = $this->getWord();
             $fullWordExploded = str_split($fullWord);
             $listOfWords = $this->getWordsToCheck();
+            // Find one-letter words
             // Loop through each letter in the word
             foreach ($fullWordExploded as $letter) {
                 // Loop through each word in the word list
@@ -42,6 +43,25 @@
                     }
                 }
             }
+            // Find two-letter words
+            foreach ($fullWordExploded as $letter) {
+                foreach ($fullWordExploded as $letter2)
+                {
+                    $combo = $letter . $letter2;
+                    // Loop through each word in the word list and look to see if two-letter combo is in the word list
+                    foreach ($listOfWords as $wordtemp) {
+                        if ($combo == $wordtemp)
+                        {
+                            if (in_array($wordtemp, $anagramList) == false)
+                            {
+                                array_push($anagramList, $wordtemp);
+
+                            }
+                        }
+                    }
+                }
+            }
+
             return $anagramList;
         }
 
