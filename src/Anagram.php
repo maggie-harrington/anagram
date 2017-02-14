@@ -3,11 +3,12 @@
     class Anagram {
 
         private $word;
-        private $wordsToCheck = array("a", "ha", "ah", "la", "all");
+        private $wordsToCheck;
 
-        function __construct($wordInput)
+        function __construct($wordInput, $possibleAnagramList)
         {
             $this->word = $wordInput;
+            $this->wordsToCheck = $possibleAnagramList;
         }
 
         function getWord()
@@ -28,64 +29,38 @@
 
         function createAnagrams()
         {
+            // array returned of anagrams of user word form list
             $anagramList = array();
+
             $fullWord = $this->getWord();
             $fullWordExploded = str_split($fullWord);
+            $wordLength = count($fullWordExploded);
+
             // This goes through the array and counts the number of times each value occurs, creating a key-value pair
             $numLetterCount = array_count_values($fullWordExploded);
             $listOfWords = $this->getWordsToCheck();
-            // Find one-letter words
-            // Loop through each letter in the word
-            foreach ($fullWordExploded as $letter) {
+
+            // put array of possible anagrams in order
+            sort($listOfWords);
+
+            // not
+
+            // possible word in wordarray is ton
+            for ($x = 0; $x < $wordLength; $x++){
+
                 // Loop through each word in the word list
                 foreach ($listOfWords as $wordtemp) {
-                    if ($letter == $wordtemp)
-                    {
-                        array_push($anagramList, $wordtemp);
-                    }
-                }
-            }
 
-            // Get length of word array
-
-            // For 1 through length of word array
-
-            //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // Find two-letter words
-            foreach ($fullWordExploded as $letter) {
-                // Track number of occurances of letter
-                $tempNumberOfOccurances = $numLetterCount[$letter];
-                foreach ($fullWordExploded as $letter2)
-                {
-                    $combo = $letter . $letter2;
-                    // Loop through each word in the word list and look to see if two-letter combo is in the word list
-                    foreach ($listOfWords as $wordtemp) {
-                        if ($combo == $wordtemp)
-                        {
-                            if (in_array($wordtemp, $anagramList) == false)
-                            {
-                                array_push($anagramList, $wordtemp);
-
-                            }
+                    foreach ($fullWordExploded as $letter){
+                        if($letter == $wordtemp[$x]){
+                            array_push($anagramList, $wordtemp);
                         }
                     }
+
                 }
+
             }
+
 
             return $anagramList;
         }

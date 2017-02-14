@@ -10,7 +10,8 @@ class AnagramTest extends PHPUnit_Framework_TestCase
     {
         //Arrange
         $testWord = "a";
-        $test_Anagram = new Anagram($testWord);
+        $anagramList = ['a'];
+        $test_Anagram = new Anagram($testWord, $anagramList);
 
         //Act
         $result = $test_Anagram->createAnagrams();
@@ -28,7 +29,8 @@ class AnagramTest extends PHPUnit_Framework_TestCase
     {
         //Arrange
         $testWord = "hall";
-        $test_Anagram = new Anagram($testWord);
+        $anagramList = ['a', 'sam', 'hello'];
+        $test_Anagram = new Anagram($testWord, $anagramList);
 
         //Act
         $result = $test_Anagram->createAnagrams();
@@ -45,7 +47,8 @@ class AnagramTest extends PHPUnit_Framework_TestCase
     {
         //Arrange
         $testWord = "hall";
-        $test_Anagram = new Anagram($testWord);
+        $anagramList = ['a', 'sam', 'hello'];
+        $test_Anagram = new Anagram($testWord, $anagramList);
 
         //Act
         $result = $test_Anagram->createAnagrams();
@@ -62,7 +65,8 @@ class AnagramTest extends PHPUnit_Framework_TestCase
     {
         //Arrange
         $testWord = "hall";
-        $test_Anagram = new Anagram($testWord);
+        $anagramList = ['a', 'sam', 'hello'];
+        $test_Anagram = new Anagram($testWord, $anagramList);
 
         //Act
         $result = $test_Anagram->createAnagrams();
