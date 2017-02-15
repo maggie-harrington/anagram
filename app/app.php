@@ -15,9 +15,9 @@
     return $app['twig']->render('anagram.html.twig');
     });
 
-    $app->get("/display_anagrams", function() use ($app) {
-        $formWord = $_GET["word"];
-        $formWordList = $_GET["word-list"];
+    $app->post("/display_anagrams", function() use ($app) {
+        $formWord = $_POST["word"];
+        $formWordList = $_POST["word-list"];
 
         $wordList = explode(' ', $formWordList);
         $newAnagram = new Anagram($formWord, $wordList);
