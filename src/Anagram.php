@@ -36,9 +36,10 @@
 
             // Loop through each word in the word list
             foreach ($listOfWords as $wordtemp) {
-
+                rtrim($wordtemp);
                 // Split each word into array of individual letters
                 $individualWordArray = str_split($wordtemp);
+                //var_dump($individualWordArray);
 
                 // looks to find all the values of individualwordarray inside of fullwordexploded and counts these values.  If the count is the same as the length of individual word array we've found an anagram.
                 if (count(array_intersect($fullWordExploded, $individualWordArray)) == count($individualWordArray))

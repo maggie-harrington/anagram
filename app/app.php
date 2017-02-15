@@ -17,11 +17,22 @@
 
     $app->post("/display_anagrams", function() use ($app) {
         $formWord = $_POST["word"];
-        $formWordList = $_POST["word-list"];
+        $fileWords = implode(' ', file('../data/wordlist2.txt'));
 
-        $wordList = explode(' ', $formWordList);
+        $fileExplode = explode(" ", $fileWords);
+
+        //$formWordList = $_POST["word-list"];
+        $wordList = $fileExplode;
+        //var_dump($wordList);
+
+        //$wordList = explode(' ', $formWordList);
         $newAnagram = new Anagram($formWord, $wordList);
         $results = $newAnagram->createAnagrams();
+
+
+
+
+
     return $app['twig']->render('display_anagrams.html.twig', array('results' => $results));
     });
 
